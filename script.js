@@ -5,7 +5,10 @@ var generateBtn = document.querySelector("#generate");
 var passwordLength = prompt('What would you like the length of the password to be? (Please enter a number between 8 and 120)');
 
 // Assigning character types to password input
-var charTypesLowercase = confirm('Would you like to use lowercase letters in your password?  Please select "OK" for yes, and "cancel" for no.')
+var charTypesLowercase = confirm('Would you like to use lowercase letters in your password?  Please select "OK" for yes, or "Cancel" for no.');
+var charTypesUppercase = confirm('Would you like to use lowercase letters in your password?  Please select "OK" for yes, or "Cancel" for no.');
+var charTypesNumeric = confirm('Would you like to use numbers in your password?  Please select "OK" for yes, or "Cancel" for no.');
+
 
 // Write password to the #password input
 function writePassword() {
@@ -20,13 +23,22 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);{
+    // Password Length
     passwordLength;
-    //console.log("The password length will be " + passwordLength + " characters long");
+    console.log("The password length will be " + passwordLength + " characters long");
+    //Lowercase letters
     charTypesLowercase;
     if(charTypesLowercase) {
         console.log("You would like to use lowercase letters")
     } else {
         console.log("You do not want to use lowercase letters")
+    };
+    //Uppercase letters
+    charTypesUppercase;
+    if(charTypesUppercase) {
+        console.log("You would like to use uppercase letters")
+    } else {
+        console.log("You do not want to use uppercase letters")
     };
 
 }
