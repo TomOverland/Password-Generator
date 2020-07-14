@@ -10,11 +10,10 @@ var charTypesUppercase = confirm('Would you like to use uppercase letters in you
 var charTypesNumeric = confirm('Would you like to use numbers in your password?  Please select "OK" for yes, or "Cancel" for no.');
 var charTypesSpecial = confirm('Would you like to use special characters in your password?  Please select "OK" for yes, or "Cancel" for no.');
 
-
-// ---PROMPTS---
-// Password Length
+// Password length prompt
 passwordLength;
-// Password Validation
+
+// Password length validation
  if (passwordLength < 8) {   
         console.log('Your password length is too small');
         alert('Your password length is too small')
@@ -26,7 +25,7 @@ passwordLength;
         console.log("Your password length will be " + passwordLength + " characters long")
     };       
 
-// Lowercase letters
+// Lowercase letters prompt
 charTypesLowercase;
 if (charTypesLowercase) {
     console.log("You would like to use lowercase letters");
@@ -36,7 +35,7 @@ if (charTypesLowercase) {
     var lowercase = "";
 };
 
-// Uppercase letters
+// Uppercase letters prompt
 charTypesUppercase;
 if (charTypesUppercase) {
     console.log("You would like to use uppercase letters");
@@ -46,7 +45,7 @@ if (charTypesUppercase) {
     var uppercase = "";
 };
 
-// Numeric
+// Numeric prompt
 charTypesNumeric;
 if (charTypesNumeric) {
     console.log("You would like to use numbers");
@@ -56,7 +55,7 @@ if (charTypesNumeric) {
     var numeric = "";
 };
 
-// Special Characters
+// Special Characters prompt
 charTypesSpecial;
 if (charTypesSpecial) {
     console.log("You would like to use special characters")
@@ -71,15 +70,20 @@ if (charTypesLowercase === false && charTypesUppercase === false && charTypesNum
     alert("You must select one of the options.");
 };
 
-//console.log concat() to test
-var chars = lowercase.concat(uppercase, numeric, special);
-console.log("Your password will consist of the following characters: " + chars);
+// Adding the selected inputs to a single variable and console logging the options
+// var chars = lowercase.concat(uppercase, numeric, special);
+// console.log("Your password will consist of the following characters: " + chars);
 
 // ---PASSWORD---
 // Write password to the #password input
 function writePassword() {
     var password = generatePassword(); {
-
+        var chars = lowercase.concat(uppercase, numeric, special);
+        var pass = "";
+        for (i = 0; i < chars.length; i++) {
+            var x = Math.floor(Math.random() * chars.length);
+            pass += chars.charAt(i);
+        }
     }
     var passwordText = document.querySelector("#password");
 
