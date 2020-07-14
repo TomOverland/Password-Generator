@@ -40,6 +40,13 @@ generateBtn.addEventListener("click", writePassword);{
     } else {
         console.log("You do not want to use uppercase letters")
     };
+    //Numeric
+    charTypesNumeric;
+    if(charTypesUppercase) {
+        console.log("You would like to use numbers")
+    } else {
+        console.log("You do not want to use numbers")
+    };
 
 }
 
