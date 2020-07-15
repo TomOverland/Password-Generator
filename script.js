@@ -77,23 +77,23 @@ if (charTypesLowercase === false && charTypesUppercase === false && charTypesNum
 // ---PASSWORD---
 // Write password to the #password input
 function writePassword() {
-    var password = generatePassword(); {
-        var chars = lowercase.concat(uppercase, numeric, special);
-        var pass = "";
-        for (i = 0; i < chars.length; i++) {
-            var x = Math.floor(Math.random() * chars.length);
-            pass += chars.charAt(i);
-        }
-    }
     var passwordText = document.querySelector("#password");
-
+    var password = generatePassword(); {
     passwordText.value = password;
 
+}
 };
+
+function generatePassword() {
+    var chars = lowercase.concat(uppercase, numeric, special);
+    var retVal = "";
+    for (i = 0; i < passwordLength; i++) {
+        retVal += chars.charAt(Math.floor(Math.random() * chars.Length));
+    }
+    return retVal;
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword); {
-    
-
-};
-
+   
+}
