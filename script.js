@@ -7,7 +7,7 @@ var confirmUppercase;
 var confirmLowercase;
 // Start Password variable values: 
 // Special characters 
-character = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
+character = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
 // Numeric characters
 number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // Alphabetical characters
@@ -22,33 +22,33 @@ var choices;
 var get = document.querySelector("#generate");
 
 get.addEventListener("click", function () {
-    ps = generatePassword();
-    document.getElementById("password").placeholder = ps;
+    passwordToString = generatePassword();
+    document.getElementById("password").placeholder = passwordToString;
 });
 
 // Start function to generate password
 function generatePassword() {
     // Asks for user input
-    passwordLength = parseInt(prompt("How many characters would you like your password? Choose between 8 and 128"));
+    passwordLength = parseInt(prompt("How many characters would you like your password to be? Enter a number between 8 and 128."));
     // First if statement for user validation 
     if (!passwordLength) {
         alert("This needs a value");
     } else if (passwordLength < 8 || passwordLength > 128) {
         // Validates user input
         // Start user input prompts
-        passwordLength = parseInt(prompt("You must choose between 8 and 128"));
+        passwordLength = parseInt(prompt("You must choose a number between 8 and 128.  Please try again."));
 
     } else {
         // Continues once user input is validated
-        confirmNumber = confirm("Will this contain numbers?");
-        confirmCharacter = confirm("Will this contain special characters?");
-        confirmUppercase = confirm("Will this contain Uppercase letters?");
-        confirmLowercase = confirm("Will this contain Lowercase letters?");
+        confirmNumber = confirm("Would you like your password to contain numbers?  Press OK for YES, and Cancel for NO");
+        confirmCharacter = confirm("Would you like your password to contain special characters?  Press OK for YES, and Cancel for NO");
+        confirmUppercase = confirm("Would you like your password to contain uppercase letters?  Press OK for YES, and Cancel for NO");
+        confirmLowercase = confirm("Would you like your password to contain lowercase letters?  Press OK for YES, and Cancel for NO");
     };
 
     // Else if for 4 negative options
     if (!confirmCharacter && !confirmNumber && !confirmUppercase && !confirmLowercase) {
-        choices = alert("You must choose a criteria!");
+        choices = alert("You must choose a criteria.  Please try again.");
 
     }
     // First if statement that uses user input prompts to determine choices
@@ -113,14 +113,12 @@ function generatePassword() {
         password.push(pickChoices);
     }
     // This joins the password array and converts it to a string
-    // Worked with a tutor to incorporate this option
     var passwordToString = password.join("");
     UserInput(passwordToString);
     return passwordToString;
 }
 // This puts the password value into the textbox
-// Changed function input to use textcontent
-function UserInput(ps) {
-    document.getElementById("password").textContent = ps;
+function UserInput(passwordToString) {
+    document.getElementById("password").textContent = passwordToString;
 
 }
