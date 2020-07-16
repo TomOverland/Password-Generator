@@ -11,17 +11,13 @@ character = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/
 // Numeric characters
 number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // Alphabetical characters
-alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-// Space is for the Uppercase conversion
-space = [];
+alphaLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+alphaUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+
 // Choices declared outside the if statement so they can be concatenated upon condition
 var choices;
-// converts letters to uppercase 
-var toUpper = function (x) {
-    return x.toUpperCase();
-};
-// creates a variable for uppercase conversion
-alpha2 = alpha.map(toUpper);
+
+
 
 var get = document.querySelector("#generate");
 
@@ -59,39 +55,39 @@ function generatePassword() {
     // Else if for 4 positive options
     else if (confirmCharacter && confirmNumber && confirmUppercase && confirmLowercase) {
 
-        choices = character.concat(number, alpha, alpha2);
+        choices = character.concat(number, alphaLower, alphaUpper);
     }
     // Else if for 3 positive options
     else if (confirmCharacter && confirmNumber && confirmUppercase) {
-        choices = character.concat(number, alpha2);
+        choices = character.concat(number, alphaUpper);
     }
     else if (confirmCharacter && confirmNumber && confirmLowercase) {
-        choices = character.concat(number, alpha);
+        choices = character.concat(number, alphaLower);
     }
     else if (confirmCharacter && confirmLowercase && confirmUppercase) {
-        choices = character.concat(alpha, alpha2);
+        choices = character.concat(alphaLower, alphaUpper);
     }
     else if (confirmNumber && confirmLowercase && confirmUppercase) {
-        choices = number.concat(alpha, alpha2);
+        choices = number.concat(alphaLower, alphaUpper);
     }
     // Else if for 2 positive options 
     else if (confirmCharacter && confirmNumber) {
         choices = character.concat(number);
 
     } else if (confirmCharacter && confirmLowercase) {
-        choices = character.concat(alpha);
+        choices = character.concat(alphaLower);
 
     } else if (confirmCharacter && confirmUppercase) {
-        choices = character.concat(alpha2);
+        choices = character.concat(alphaUpper);
     }
     else if (confirmLowercase && confirmNumber) {
-        choices = alpha.concat(number);
+        choices = alphaLower.concat(number);
 
     } else if (confirmLowercase && confirmUppercase) {
-        choices = alpha.concat(alpha2);
+        choices = alphaLower.concat(alphaUpper);
 
     } else if (confirmNumber && confirmUppercase) {
-        choices = number.concat(alpha2);
+        choices = number.concat(alphaUpper);
     }
     // Else if for 1 positive option
     else if (confirmCharacter) {
@@ -101,11 +97,10 @@ function generatePassword() {
         choices = number;
     }
     else if (confirmLowercase) {
-        choices = alpha;
+        choices = alphaLower;
     }
-    // Created space variable to fill uppercase conversion
     else if (confirmUppercase) {
-        choices = space.concat(alpha2);
+        choices = alphaUpper;
     };
 
     // password variable is an array placeholder for user generated amount of length
@@ -119,9 +114,9 @@ function generatePassword() {
     }
     // This joins the password array and converts it to a string
     // Worked with a tutor to incorporate this option
-    var ps = password.join("");
-    UserInput(ps);
-    return ps;
+    var passwordToString = password.join("");
+    UserInput(passwordToString);
+    return passwordToString;
 }
 // This puts the password value into the textbox
 // Changed function input to use textcontent
