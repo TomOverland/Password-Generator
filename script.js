@@ -1,11 +1,12 @@
-// Start working code
 // User input variables: 
 var passwordLength;
 var confirmNumber;
 var confirmCharacter;
 var confirmUppercase;
 var confirmLowercase;
-// Start Password variable values: 
+var choices;
+
+// Password variables: 
 // Special characters 
 character = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
 // Numeric characters
@@ -14,16 +15,11 @@ number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 alphaLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 alphaUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-// Choices declared outside the if statement so they can be concatenated upon condition
-var choices;
+var generateBtn = document.querySelector("#generate");
 
-
-
-var get = document.querySelector("#generate");
-
-get.addEventListener("click", function () {
-    passwordToString = generatePassword();
-    document.getElementById("password").placeholder = passwordToString;
+generateBtn.addEventListener("click", function () {
+    passwordText = generatePassword();
+    document.getElementById("password").placeholder = passwordText;
 });
 
 // Start function to generate password
@@ -32,7 +28,7 @@ function generatePassword() {
     passwordLength = parseInt(prompt("How many characters would you like your password to be? Enter a number between 8 and 128."));
     // First if statement for user validation 
     if (!passwordLength) {
-        alert("This needs a value");
+        alert("This needs a value.  Please try again.");
     } else if (passwordLength < 8 || passwordLength > 128) {
         // Validates user input
         // Start user input prompts
@@ -52,12 +48,12 @@ function generatePassword() {
 
     }
     // First if statement that uses user input prompts to determine choices
-    // Else if for 4 positive options
+    // Else if for 4 positive responses
     else if (confirmCharacter && confirmNumber && confirmUppercase && confirmLowercase) {
 
         choices = character.concat(number, alphaLower, alphaUpper);
     }
-    // Else if for 3 positive options
+    // Else if for 3 positive responses
     else if (confirmCharacter && confirmNumber && confirmUppercase) {
         choices = character.concat(number, alphaUpper);
     }
@@ -70,7 +66,7 @@ function generatePassword() {
     else if (confirmNumber && confirmLowercase && confirmUppercase) {
         choices = number.concat(alphaLower, alphaUpper);
     }
-    // Else if for 2 positive options 
+    // Else if for 2 positive responses 
     else if (confirmCharacter && confirmNumber) {
         choices = character.concat(number);
 
@@ -89,7 +85,7 @@ function generatePassword() {
     } else if (confirmNumber && confirmUppercase) {
         choices = number.concat(alphaUpper);
     }
-    // Else if for 1 positive option
+    // Else if for 1 positive responses
     else if (confirmCharacter) {
         choices = character;
     }
@@ -103,22 +99,21 @@ function generatePassword() {
         choices = alphaUpper;
     };
 
-    // password variable is an array placeholder for user generated amount of length
+    // Password variable is an array placeholder for submitted password length
     var password = [];
 
-    // Start random selection variables:
-    // Random selection for all variables: 
+    // Random selection variables: 
     for (var i = 0; i < passwordLength; i++) {
         var pickChoices = choices[Math.floor(Math.random() * choices.length)];
         password.push(pickChoices);
     }
-    // This joins the password array and converts it to a string
-    var passwordToString = password.join("");
-    UserInput(passwordToString);
-    return passwordToString;
+    // Combine the password array and convert it to a string
+    var passwordText = password.join("");
+    UserInput(passwordText);
+    return passwordText;
 }
-// This puts the password value into the textbox
-function UserInput(passwordToString) {
-    document.getElementById("password").textContent = passwordToString;
+// Have the password show in the textbox:
+function UserInput(passwordText) {
+    document.getElementById("password").textContent = passwordText;
 
 }
