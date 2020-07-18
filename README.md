@@ -1,5 +1,4 @@
 # Password-Generator
-I created a random password generator.  
   
 ## Live site
 This is a link to the deployed application: https://tomoverland.github.io/Password-Generator/
