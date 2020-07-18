@@ -5,6 +5,7 @@ I created a random password generator.
 This is a link to the deployed application: https://tomoverland.github.io/Password-Generator/
 
 # Screenshot of application  
+![demonstration of application](https://github.com/TomOverland/Password-Generator/blob/master/assets/PasswordGeneratorGif.gif?raw=true)
 
 # Description
 This application will randomly generate a password that is strong and secure.  
