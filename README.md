@@ -1,5 +1,13 @@
 # Password-Generator
-I created a random password generator based on the following criteria:  
+I created a random password generator.  
+  
+# Link
+This is a link to the deployed application: https://tomoverland.github.io/Password-Generator/
+
+# Screenshot of application  
+
+# Criteria
+Below is the list of criteria that I was given to build the application.  
 
 # User Story
 AS AN employee with access to sensitive data  
