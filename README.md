@@ -21,4 +21,4 @@ You will need an internet connection.
 I created this code based on the homework prompt created by Trilogy Education Services.
 
 ## Contributing
-I was the only one to work on this project.
+The HTML and CSS files were provided to me, along with lines 104, 105, 106, and 110 of the javascript file.
