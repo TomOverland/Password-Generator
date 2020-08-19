@@ -11,9 +11,6 @@ This is a link to the deployed application: https://tomoverland.github.io/Passwo
 HTML  
 CSS  
 JavaScript  
-jQuery  
-
-Framework: Bootstrap 4
 
 ## Description
 This application will randomly generate a password that is strong and secure.  
